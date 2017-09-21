@@ -34,7 +34,7 @@ class App extends Component {
           <h2>{this.state.header}</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload we.
+          To get started, edit <code>src/App.js</code> save to reload wechat.
         </p>
       </div>
     );
