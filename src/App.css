@@ -18,6 +18,23 @@
   font-size: large;
 }
 
+.App-count {
+  font-size: 30px;
+  color: black;
+}
+
+.App-reduce {
+  height: 50px;
+  width: 200px;
+  margin-top: 10px
+}
+
+.App-add {
+  height: 50px;
+  width: 200px;
+  margin-top: 10px
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

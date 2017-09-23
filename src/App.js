@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import * as actions from '../src/actions/counter'
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,11 +15,20 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> save to reload wechat.
+          react、 redux、 react-router、 redux-action、 redux-observable.
         </p>
+        <button className="App-count">{this.props.count}</button>
+        <br />
+        <button className="App-add" onClick={this.props.add}>add</button>
+        <br />
+        <button className="App-reduce" onClick={this.props.reduce}>reduce</button>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = ({counter}) => counter
+
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
