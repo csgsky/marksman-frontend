@@ -5,9 +5,9 @@ export default class Photo extends Component {
   render() {
     return (
       <div className="App">
-        <p className="App-intro">
+        <h2 className="App-intro">
           photo
-        </p>
+        </h2>
       </div>
     );
   }

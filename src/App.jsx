@@ -34,14 +34,30 @@ class App extends Component {
             alt="allen"
           />
           <br />
-          <li><Link to="/photo">跳到 photo</Link></li>
+          <li><Link to="/">首页</Link></li>
+          <li><Link to="/photo">photo</Link></li>
+          <li><Link to="/about">about us</Link></li>
           <br />
+          <Route path="/" component={Home}/>
           <Route path="/photo" component={Photo}/>
+          <Route path="/about" component={About}/>
         </div>
       </Router>
     );
   }
 }
+
+const Home = () => (
+  <div>
+    <h2>首页</h2>
+  </div>
+)
+
+const About = () => (
+  <div>
+    <h2>关于</h2>
+  </div>
+)
 
 const mapStateToProps = ({counter}) => counter
 
