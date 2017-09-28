@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -16,6 +17,28 @@
 
 .App-intro {
   font-size: large;
+}
+
+.App-count {
+  font-size: 30px;
+  color: black;
+}
+
+.App-reduce {
+  height: 50px;
+  width: 200px;
+  margin-top: 10px
+}
+
+.App-add {
+  height: 50px;
+  width: 200px;
+  margin-top: 10px
+}
+
+.Avatar {
+  margin-top: 10px;
+  background: black;
 }
 
 @keyframes App-logo-spin {
