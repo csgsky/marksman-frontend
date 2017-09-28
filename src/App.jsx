@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import { 
+import Rx from 'rxjs'
+import {
   BrowserRouter as Router,
   Route,
   Link
@@ -12,6 +13,49 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+  componentDidMount() {
+    // const btnClick = this.refs.btnClick
+
+    Rx.Observable
+      .fromEvent(this.refs.btnClick, 'click')
+      .debounceTime(1000)
+      .subscribe(() => {
+        console.log('click')
+      })
+
+    // 修改需求，需要跟网络搜索引擎保持相同的交互
+    // 在用户输入的过程中，每隔 1 秒去网络请求，同时搜索的关键字大于 8 位。
+    Rx.Observable
+        .fromEvent(this.refs.titleInput, 'keyup')
+        .map(() => this.refs.titleInput.value)
+        .debounceTime(1000)
+        .filter(v => v.length > 8)
+        .subscribe((value) => {
+          this.setState({value})
+        })
+
+    // 按下回车键实现搜索
+    // 并保证输入的大于8位
+    // 然后去搜索
+    // Rx.Observable
+    //   .fromEvent(this.refs.titleInput, 'keypress')
+    //   .filter(e => e.keyCode === 13)
+    //   .map(() => this.refs.titleInput.value)
+    //   .filter(v => v.length > 8)
+    //   .subscribe((value) => {
+    //     console.log(value)
+    //     $Ajax()........
+    //   })
+  }
+
+
   render() {
     return (
       <Router>
@@ -23,7 +67,15 @@ class App extends Component {
           <p className="App-intro">
             react、 redux、 react-router、 redux-action、 redux-observable、rxjs.
           </p>
-          <button className="App-count">{this.props.count}</button>
+          <br />
+          <br />
+          <p>{this.state.value}</p>
+          <input type="text" ref="titleInput"/>
+
+          <br/>
+          <button className="App-add" ref="btnClick">点击事件</button>
+          <br /><br /><br />
+          <button className="App-add">{this.props.count}</button>
           <br />
           <button className="App-add" onClick={this.props.add}>add</button>
           <br />
