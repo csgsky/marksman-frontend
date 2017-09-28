@@ -20,6 +20,7 @@ class App extends Component {
       value: ''
     }
   }
+  
   componentDidMount() {
     // const btnClick = this.refs.btnClick
 
@@ -53,6 +54,7 @@ class App extends Component {
     //     console.log(value)
     //     $Ajax()........
     //   })
+
   }
 
 
@@ -67,6 +69,7 @@ class App extends Component {
           <p className="App-intro">
             react、 redux、 react-router、 redux-action、 redux-observable、rxjs.
           </p>
+<<<<<<< HEAD
           <br />
           <br />
           <p>{this.state.value}</p>
@@ -74,6 +77,11 @@ class App extends Component {
 
           <br/>
           <button className="App-add" ref="btnClick">点击事件</button>
+=======
+          <button className="App-count">{this.state.result}</button>
+          <br />
+          <input type="text" ref="titleInput"/>
+>>>>>>> 3bbd270f1167d5b995472330854ba14ca96fbbb2
           <br /><br /><br />
           <button className="App-add">{this.props.count}</button>
           <br />
