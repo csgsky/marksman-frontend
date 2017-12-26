@@ -12,10 +12,10 @@ function counterEpic (action$) {
                 (token, page) => ({token, page})
               ).flatMap(
                 (it) => {
-                  if (it.token && it.net === '1') {
-                    return Observable.of(3)
-                  }
-                  return Observable.from(2)
+                  return Observable.concat(
+                      Observable.of(actions.after()),
+                      Observable.of(actions.after())
+                  )
                 }
               ).map((it) => {
                 return actions.add()
